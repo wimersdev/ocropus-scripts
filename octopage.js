@@ -8,7 +8,7 @@ const navToggle = () => {
         overlay.style.opacity = 0;
         shell.style.transform = 'translateX(-100%)';
 
-        
+
         setTimeout(() => {
             overlay.style.transition = 'opacity 200ms ease';
             shell.style.transition = 'transform 200ms ease';
@@ -38,11 +38,11 @@ if (window.innerWidth <= 991) {
 const navLinks = document.querySelectorAll('.oct-nav-link');
 navLinks.forEach(link => {
     link.addEventListener('mouseenter', () => {
-        link.classList.add('menu-link-hover');
+        link.classList.add('oct-menu-link-hover');
     });
 
     link.addEventListener('mouseleave', () => {
-        link.classList.remove('menu-link-hover');
+        link.classList.remove('oct-menu-link-hover');
     });
 
 
