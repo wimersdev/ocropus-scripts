@@ -8,7 +8,7 @@ const navToggle = () => {
         overlay.style.opacity = 0;
         shell.style.transform = 'translateX(-100%)';
 
-        // Добавляем задержку для включения транзишенов
+        
         setTimeout(() => {
             overlay.style.transition = 'opacity 200ms ease';
             shell.style.transition = 'transform 200ms ease';
@@ -20,7 +20,7 @@ const navToggle = () => {
         overlay.style.opacity = 0;
         shell.style.transform = 'translateX(-100%)';
 
-        // Удаляем стили после завершения анимации
+
         setTimeout(() => {
             nav.style.display = 'none';
             overlay.style.transition = '';
@@ -33,3 +33,23 @@ if (window.innerWidth <= 991) {
     document.getElementById('oct-menu-button').addEventListener('click', navToggle);
     document.getElementById('oct-nav-overlay').addEventListener('click', navToggle);
 }
+
+
+const navLinks = document.querySelectorAll('.oct-nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.classList.add('menu-link-hover');
+    });
+
+    link.addEventListener('mouseleave', () => {
+        link.classList.remove('menu-link-hover');
+    });
+
+
+    const linkPath = new URL(link.href).pathname;
+    const currentPath = window.location.pathname;
+
+    if (linkPath === currentPath) {
+        link.classList.add('oct-nav-link-current');
+    }
+});
