@@ -53,3 +53,28 @@ navLinks.forEach(link => {
         link.classList.add('oct-nav-link-current');
     }
 });
+
+const todoCheck = () => {
+    const todos = document.getElementsByClassName('oct-todo');
+
+    Array.from(todos).forEach(todo => {
+        todo.addEventListener('click', function() {
+            if (this.classList.contains('oct-todo-checked')) {
+                this.classList.remove('oct-todo-checked');
+                const check = this.querySelector('.oct-todo-check');
+                if (check) {
+                    check.classList.remove('oct-todo-check-visible');
+                }
+            } else {
+                this.classList.add('oct-todo-checked');
+                const check = this.querySelector('.oct-todo-check');
+                if (check) {
+                    check.classList.add('oct-todo-check-visible');
+                }
+            }
+        });
+    });
+};
+
+todoCheck();
+
